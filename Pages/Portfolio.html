@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate Gallery</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: #000;
+        color: white;
+        padding: 20px;
+      }
+
+      .cert-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+        justify-content: center;
+      }
+
+      .cert-card {
+        border: 2px solid white;
+        width: 280px;
+        background-color: #111;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+      }
+
+      .cert-card:hover {
+        transform: scale(1.03);
+      }
+
+      .cert-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-bottom: 1px solid white;
+      }
+
+      .content {
+        text-align: center;
+        padding: 12px;
+        font-size: 1rem;
+        border-top: 1px solid white;
+        width: 100%;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      @media (max-width: 600px) {
+        .cert-card {
+          width: 90%;
+        }
+      }
+
+      /* Popup Overlay */
+      .popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(10px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+      }
+
+      .popup-overlay.show {
+        display: flex;
+      }
+
+      .popup-content {
+        display: flex;
+        flex-direction: row;
+        max-width: 95%;
+        width: 1000px;
+        background: transparent;
+        border-radius: 12px;
+        overflow: hidden;
+        animation: zoomIn 0.5s ease forwards;
+        opacity: 0;
+        transform: scale(0.8);
+      }
+
+      .popup-overlay.show .popup-content {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .popup-left {
+        flex: 1.3;
+        padding: 0;
+        background-color: #000;
+      }
+
+      .popup-left a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .popup-left img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 10px;
+      }
+
+      .popup-right {
+        flex: 1;
+        padding: 30px 20px;
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: transparent;
+        text-align: left;
+        color: white;
+      }
+
+      .popup-right h3 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: white;
+      }
+
+      .popup-right p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #eee;
+      }
+
+      @media (max-width: 768px) {
+        .popup-content {
+          flex-direction: column;
+        }
+
+        .popup-left,
+        .popup-right {
+          flex: unset;
+          width: 100%;
+        }
+
+        .popup-left img {
+          border-radius: 0;
+        }
+
+        .popup-right {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="cert-container">
+      <div
+        class="cert-card"
+        onclick="openPopup(this)"
+        data-title="Responsive Web Design"
+        data-desc="Completed the Responsive Web Design Certification from freeCodeCamp.
+        Gained hands-on experience in building structured, mobile-friendly websites using HTML5, CSS3, and Flexbox/Grid. Developed 5 responsive projects to demonstrate layout, accessibility, and modern web design principles."
+        data-link="https://www.freecodecamp.org/certification/fccfa4bc376-661f-49f1-a320-d91e4f84d9c8/responsive-web-design"
+      >
+        <img src="Certificates/FCC.png" alt="Certificate" />
+        <div class="content">freeCodeCamp</div>
+      </div>
+
+      <div
+        class="cert-card"
+        onclick="openPopup(this)"
+        data-title="Software Engineering job simulation"
+        data-desc="Completed the Goldman Sachs Software Engineering Virtual Experience on Forage in November 2024.
+        Focused on understanding cybersecurity scenarios and researched how to address challenges like cracking a leaked password database, simulating problem-solving in a financial tech context."
+        data-link="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/MBA4MnZTNFEoJZGnk/NPdeQ43o8P9HJmJzg_MBA4MnZTNFEoJZGnk_pZ5Y9BczmQRTALfWZ_1731816586057_completion_certificate.pdf"
+      >
+        <img src="Certificates/GS.jpg" alt="Certificate" />
+        <div class="content">Goldman Sachs</div>
+      </div>
+      <div
+        class="cert-card"
+        onclick="openPopup(this)"
+        data-title="Digital Skills: Artificial Intelligence"
+        data-desc="Completed a 3-week course on Artificial Intelligence by Accenture via FutureLearn.
+          Learned how AI is transforming industries and the workplace, explored the rise of Generative AI, and understood how humans can adapt to work alongside intelligent systems."
+        data-link="https://www.futurelearn.com/certificates/fat9xuy"
+      >
+        <img src="Certificates/Accenture.png" alt="Certificate" />
+        <div class="content">Accenture</div>
+      </div>
+      <div
+        class="cert-card"
+        onclick="openPopup(this)"
+        data-title="Amazon Web Services (AWS) Job Simulation"
+        data-desc="Completed the AWS Cloud Support Virtual Job Simulation on Forage.
+        Learned the basics of cloud computing, explored solutions for high-traffic server issues, and drafted a professional client response addressing a website crash caused by heavy load."
+        data-link="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/pmnMSL4QiQ9JCgE3W/kkE9HyeNcw6rwCRGw_pmnMSL4QiQ9JCgE3W_pZ5Y9BczmQRTALfWZ_1731256417292_completion_certificate.pdf"
+      >
+        <img src="Certificates/AWS.png" alt="Certificate" />
+        <div class="content">Amazon AWS</div>
+      </div>
+      <div
+        class="cert-card"
+        onclick="openPopup(this)"
+        data-title="Introduction to Cybersecurity"
+        data-desc="Completed the Introduction to Cybersecurity course by Cisco Networking Academy.
+        Learned the fundamentals of cybersecurity, including online threats, cyber attacks, data protection, and how individuals and organizations can stay safe in the digital world."
+        data-link=""
+      >
+        <img src="Certificates/Cisco.png" alt="Certificate" />
+        <div class="content">Cisco: Cybersecurity</div>
+      </div>
+    </section>
+
+    <!-- POPUP -->
+    <div class="popup-overlay" id="popupOverlay" onclick="closePopup()">
+      <div class="popup-content" onclick="event.stopPropagation();">
+        <div class="popup-left">
+          <a id="popupLink" href="#" target="_blank">
+            <img id="popupImage" src="" alt="Certificate Full View" />
+          </a>
+        </div>
+        <div class="popup-right">
+          <h3 id="popupTitle"></h3>
+          <p id="popupDesc"></p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openPopup(card) {
+        const overlay = document.getElementById("popupOverlay");
+        const img = card.querySelector("img").src;
+        const title = card.getAttribute("data-title");
+        const desc = card.getAttribute("data-desc");
+        const link = card.getAttribute("data-link");
+
+        document.getElementById("popupImage").src = img;
+        document.getElementById("popupTitle").textContent = title;
+        document.getElementById("popupDesc").textContent = desc;
+        document.getElementById("popupLink").href = link;
+
+        overlay.classList.add("show");
+      }
+
+      function closePopup() {
+        const overlay = document.getElementById("popupOverlay");
+        overlay.classList.remove("show");
+      }
+    </script>
+  </body>
+</html>
