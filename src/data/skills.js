@@ -1,28 +1,40 @@
-const skills = [
-  "/img/Html.png",
-  "/img/Css.png",
-  "/img/JavaScript.png",
-  "/img/MongoDB.png",
-  "/img/Express.png",
-  "/img/React.png",
-  "/img/Node.png",
-  "/img/MySql.png",
-  "/img/Tailwind.png",
-  "/img/Java.png",
-  "/img/Git.png",
-  "/img/Github.png",
-  "/img/Html.png",
-  "/img/Css.png",
-  "/img/JavaScript.png",
-  "/img/MongoDB.png",
-  "/img/Express.png",
-  "/img/React.png",
-  "/img/Node.png",
-  "/img/MySql.png",
-  "/img/Tailwind.png",
-  "/img/Java.png",
-  "/img/Git.png",
-  "/img/Github.png"
+const Skills = [
+  {
+    name: "HTML",
+    img: "/img/Html.png",
+  },
+  {
+    name: "CSS",
+    img: "/img/Css.png",
+  },
+  {
+    name: "JavaScript",
+    img: "/img/JavaScript.png",
+  },
+  {
+    name: "React",
+    img: "/img/React.png",
+  },
+  {
+    name: "Node.js",
+    img: "/img/Node.png",
+  },
+  {
+    name: "MongoDB",
+    img: "/img/MongoDB.png",
+  },
+  {
+    name: "Tailwind",
+    img: "/img/Tailwind.png",
+  },
+  {
+    name: "Git",
+    img: "/img/Git.png",
+  },
+  {
+    name: "GitHub",
+    img: "/img/Github.png",
+  },
 ];
 
-export default skills;
+export default Skills;
